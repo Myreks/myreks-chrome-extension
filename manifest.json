@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "Myreks Injector",
+  "description": "Inject myreks snippet in all pages!",
+  "version": "1.0",
+  "icons": {
+    "32": "icons/icon.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "webNavigation"
+  ],
+  "browser_action": {
+    "default_icon": "icons/icon-disabled.png"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
